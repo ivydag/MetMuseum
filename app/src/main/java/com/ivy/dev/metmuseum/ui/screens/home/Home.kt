@@ -22,19 +22,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.data.models.MetUser
+import com.ivy.dev.metmuseum.data.repository.GalleryRepository
 import com.ivy.dev.metmuseum.navigation.BottomNavData
 import com.ivy.dev.metmuseum.navigation.BottomNavItem
 import com.ivy.dev.metmuseum.ui.screens.exhibitions.ExhibitionsContent
 import com.ivy.dev.metmuseum.ui.screens.gallery.GalleryContent
 import com.ivy.dev.metmuseum.ui.screens.profile.ProfileContent
 import com.ivy.dev.metmuseum.ui.theme.Amber80
+import com.ivy.dev.metmuseum.ui.viewmodel.gallery.GalleryViewModel
 import com.ivy.dev.metmuseum.ui.viewmodel.home.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Home(homeViewModel: HomeViewModel, navController: NavController) {
+fun Home(homeViewModel: HomeViewModel, navController: NavController, galleryRepository: GalleryRepository) {
     val homeUIState = homeViewModel.uiState.collectAsState().value
     val metUser = MetUser(firstName = "Ivonne", lastName = "Morales", email = "ivmorales@gmail.com", password = "159u6lkn")
+    val galleryViewModel = GalleryViewModel(galleryRepository)
+
     Scaffold(bottomBar = {
         BottomBar(
             bottomNavItems = homeViewModel.bottomNavItems,
@@ -46,7 +50,7 @@ fun Home(homeViewModel: HomeViewModel, navController: NavController) {
         Box(modifier = Modifier.padding(paddingValues = it))
         when (homeUIState.selectedIndex){
             0 -> HomeContent(navController = navController)
-            1 -> GalleryContent(navController = navController )
+            1 -> GalleryContent(navController = navController, viewModel = galleryViewModel)
             2 -> ExhibitionsContent()
             3 -> ProfileContent(navController= navController, metUser)
             else -> HomeContent(navController = navController)

@@ -5,22 +5,24 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.R
+import com.ivy.dev.metmuseum.data.models.GalleryResponse
 import com.ivy.dev.metmuseum.ui.components.TittleBarComponent
 import com.ivy.dev.metmuseum.ui.screens.home.HomeAppBar
+import com.ivy.dev.metmuseum.ui.viewmodel.gallery.GalleryViewModel
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GalleryContent(navController: NavController) {
+fun GalleryContent(navController: NavController, viewModel: GalleryViewModel) {
     Scaffold(
         topBar = {
             HomeAppBar(
@@ -34,8 +36,23 @@ fun GalleryContent(navController: NavController) {
                 .fillMaxSize()
                 .padding(it),
         ) {
+
+            val galleryData: GalleryResponse? = viewModel.galleryData.value
+            val coroutineScope = rememberCoroutineScope()
+
+            LaunchedEffect(Unit) {
+                coroutineScope.launch {
+                    viewModel.fetchGallery()
+                }
+            }
+
+            if (galleryData != null) {
+                GalleryElements(viewModel = viewModel)
+            } else {
+                Text("Loading...")
+            }
             TittleBarComponent(stringResource(id = R.string.gallery_title))
-            GalleryElements()
+
             Divider()
         }
     }
@@ -43,22 +60,6 @@ fun GalleryContent(navController: NavController) {
 
 //TODO RECEIVES THE LIST
 @Composable
-fun GalleryElements(){
-
-}
-
-//TODO made a component that receives a text and can be used for other views
-@Composable
-fun GallerryBar() {
-    Column(
-        modifier = Modifier.padding(horizontal = 15.dp, vertical = 20.dp)
-    ) {
-        Text(
-            text = "PRUEBA GALLERY".uppercase(),
-            style = MaterialTheme.typography.bodyLarge.copy(
-                fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.primary
-            ),
-        )
-    }
+fun GalleryElements(viewModel: GalleryViewModel){
+  Text(text = "HOLA")
 }
