@@ -24,6 +24,8 @@ import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.data.models.MetUser
 import com.ivy.dev.metmuseum.navigation.BottomNavData
 import com.ivy.dev.metmuseum.navigation.BottomNavItem
+import com.ivy.dev.metmuseum.ui.screens.exhibitions.ExhibitionsContent
+import com.ivy.dev.metmuseum.ui.screens.gallery.GalleryContent
 import com.ivy.dev.metmuseum.ui.screens.profile.ProfileContent
 import com.ivy.dev.metmuseum.ui.theme.Amber80
 import com.ivy.dev.metmuseum.ui.viewmodel.home.HomeViewModel
@@ -44,6 +46,8 @@ fun Home(homeViewModel: HomeViewModel, navController: NavController) {
         Box(modifier = Modifier.padding(paddingValues = it))
         when (homeUIState.selectedIndex){
             0 -> HomeContent(navController = navController)
+            1 -> GalleryContent(navController = navController )
+            2 -> ExhibitionsContent()
             3 -> ProfileContent(navController= navController, metUser)
             else -> HomeContent(navController = navController)
 

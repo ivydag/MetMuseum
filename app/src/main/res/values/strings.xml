@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MetMuseum</string>
     <string name="home_body_text">The Harvard Art Museums are committed to creating an environment that fosters inclusion and belonging. Please join us in ensuring that every visitor feels welcomed and respected.</string>
+    <string name="gallery_title">Gallery</string>
+    <string name="exhibition_title">Exhibitions</string>
+    <string name="profile_title">My profile</string>
 </resources>

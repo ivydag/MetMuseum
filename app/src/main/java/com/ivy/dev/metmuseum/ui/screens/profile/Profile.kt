@@ -13,29 +13,26 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.R
 import com.ivy.dev.metmuseum.data.models.MetUser
+import com.ivy.dev.metmuseum.ui.components.TittleBarComponent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileContent(navController: NavController, metUser: MetUser) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = "User Profile", style = MaterialTheme.typography.bodyMedium)
-                }
-            )
+            TittleBarComponent(title = stringResource(id = R.string.profile_title))
         }
     ) {
         Column(modifier = Modifier.padding(it)) {
