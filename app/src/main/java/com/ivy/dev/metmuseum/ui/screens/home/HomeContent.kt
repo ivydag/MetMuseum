@@ -1,5 +1,6 @@
 package com.ivy.dev.metmuseum.ui.screens.home
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +16,7 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -28,6 +30,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.R
+import com.ivy.dev.metmuseum.ui.components.GridWithCards
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,7 +56,7 @@ fun HomeContent(
                 }
             )
             Divider()
-
+            RecyclerViewContent()
         }
     }
 }
@@ -122,6 +125,20 @@ fun HomeBanner(onSearch: () -> Unit) {
     }
 }
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun RecyclerViewContent() {
+    Scaffold(
+        topBar = { /* Top Bar */ },
+        content = {
+            Surface(color = MaterialTheme.colorScheme.primary) {
+                GridWithCards()
+            }
+        }
+    )
+}
+
 @Composable
 fun LogoImage(size: Dp) {
     Image(
@@ -130,5 +147,4 @@ fun LogoImage(size: Dp) {
         contentScale = ContentScale.Fit,
         modifier = Modifier.size(size)
     )
-
 }

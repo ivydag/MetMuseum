@@ -7,8 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 
 interface ApiService {
-//TODO fix the list
-    @Headers(KEY_NAME,API_KEY)
     @GET("gallery")
     suspend fun getGallery(): GalleryResponse
 }
