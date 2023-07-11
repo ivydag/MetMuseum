@@ -24,6 +24,7 @@ import androidx.navigation.NavController
 import com.ivy.dev.metmuseum.R
 import com.ivy.dev.metmuseum.data.models.GalleryResponse
 import com.ivy.dev.metmuseum.data.models.Record
+import com.ivy.dev.metmuseum.ui.components.LottieLoading
 import com.ivy.dev.metmuseum.ui.components.TittleBarComponent
 import com.ivy.dev.metmuseum.ui.screens.home.HomeAppBar
 import com.ivy.dev.metmuseum.ui.viewmodel.gallery.GalleryViewModel
@@ -59,7 +60,7 @@ fun GalleryContent(navController: NavController, viewModel: GalleryViewModel) {
             if (galleryData != null) {
                 SetGalleryList(galleryData = galleryData, onItemClicked = {} )
             } else {
-                Text("Loading...")
+                LottieLoading()
             }
             TittleBarComponent(stringResource(id = R.string.gallery_title))
         }
