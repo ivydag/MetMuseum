@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1034390869274",
+    "project_id": "metmuseum-2e976",
+    "storage_bucket": "metmuseum-2e976.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034390869274:android:cb8e5db8f68f1914c188a3",
+        "android_client_info": {
+          "package_name": "com.ivy.dev.metmuseum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1034390869274-njaf0j5pjvpulbqsfjt6v765dvbnbsek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ivy.dev.metmuseum",
+            "certificate_hash": "e636cdf1b5044b8085f6354379d898ab56c39856"
+          }
+        },
+        {
+          "client_id": "1034390869274-11h69sf14g33onpfgkqnn13e64fcggba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFaSsXJGkg2_Nr0AdDMa9FVPIcEU6pCdI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1034390869274-11h69sf14g33onpfgkqnn13e64fcggba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

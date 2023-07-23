@@ -11,6 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
     private const val BASE_URL = "https://api.harvardartmuseums.org"
+    private const val VIMEO_BASE_URL = "https://api.vimeo.com/videos/"
 
     private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
